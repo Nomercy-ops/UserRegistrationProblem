@@ -41,3 +41,74 @@ class TestUserValidation(unittest.TestCase):
         self.assertFalse(validate.ValidateName("RIKESH"))
         self.assertFalse(validate.ValidateName("Ri786es"))
         self.assertFalse(validate.ValidateName("Ri@kesh"))
+
+     #   " Test Case For Email "
+
+    def test_givenValidEmail_shouldReturnTrue(self):
+        """
+    Description:
+        The given valid email should return true in test case
+
+    Parameter:
+        It takes self as a parameter.
+
+    """
+
+        self.assertTrue(validate.ValidateEmail("abc10@yahoo.com"))
+        self.assertTrue(validate.ValidateEmail("abc-100@yahoo.com"))
+        self.assertTrue(validate.ValidateEmail("abc.100@yahoo.com"))
+        self.assertTrue(validate.ValidateEmail("abc111@abc.com"))
+        self.assertTrue(validate.ValidateEmail("abc-100@abc.net"))
+        self.assertTrue(validate.ValidateEmail("abc.100@abc.com.au"))
+        self.assertTrue(validate.ValidateEmail("abc@1.com"))
+        self.assertTrue(validate.ValidateEmail("abc@gmail.com.com"))
+
+    def test_givenInvalidEmail_shouldReturnFalse(self):
+        """
+    Description:
+        The given invalid Email should return false in test case
+
+    Parameter:
+        It takes self as a parameter.
+
+    """
+        self.assertFalse(validate.ValidateEmail("rikesh@.com"))
+        self.assertFalse(validate.ValidateEmail("rikesh@gmail"))
+        self.assertFalse(validate.ValidateEmail("abc..28@gmail.com"))
+        self.assertFalse(validate.ValidateEmail("abc123@gmail.c"))
+        self.assertFalse(validate.ValidateEmail("abc@abc@gmail.com"))
+        self.assertFalse(validate.ValidateEmail(".abc@abc@gmail.com"))
+
+    
+    #   " Test Case For Phone Number "
+
+    def test_givenValidPhoneNumber_shouldReturnTrue(self):
+        """
+    Description:
+        The given valid Phone number should return true in test case
+
+    Parameter:
+        It takes self as a parameter.
+
+    """
+        self.assertTrue(validate.ValidatePhoneNumber("+91-7865434321"))
+        self.assertTrue(validate.ValidatePhoneNumber("+91 6865434321"))
+
+    
+    def test_givenInvalidPhoneNumber_shouldReturnFalse(self):
+        """
+    Description:
+        The given invalid phone number should return true in test case
+
+    Parameter:
+        It takes self as a parameter.
+
+    """
+        self.assertFalse(validate.ValidatePhoneNumber("+91-786543"))
+        self.assertFalse(validate.ValidatePhoneNumber("+91-78654346578"))
+        self.assertFalse(validate.ValidatePhoneNumber("+91 5765654324"))
+        self.assertFalse(validate.ValidatePhoneNumber("7865438768"))
+        self.assertFalse(validate.ValidatePhoneNumber("+91  8765654324"))
+        self.assertFalse(validate.ValidatePhoneNumber("+91-876565r324"))
+        self.assertFalse(validate.ValidatePhoneNumber("+91-87656@r324"))
+        
