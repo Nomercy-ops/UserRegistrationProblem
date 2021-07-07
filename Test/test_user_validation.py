@@ -111,4 +111,35 @@ class TestUserValidation(unittest.TestCase):
         self.assertFalse(validate.ValidatePhoneNumber("+91  8765654324"))
         self.assertFalse(validate.ValidatePhoneNumber("+91-876565r324"))
         self.assertFalse(validate.ValidatePhoneNumber("+91-87656@r324"))
-        
+
+     #   " Test Case For Password:  "
+
+    def test_givenValidPassword_shouldReturnTrue(self):
+        """
+    Description:
+        The given valid Password should return true in test case
+
+    Parameter:
+        It takes self as a parameter.
+
+    """
+
+        self.assertTrue(validate.ValidatePassword("Mercy@123"))
+        self.assertTrue(validate.ValidatePassword("mercy@Yoo76#"))
+
+    def test_givenInvalidPassword_shouldReturnFalse(self):
+        """
+    Description:
+        The given invalid Password should return false in test case
+
+    Parameter:
+        It takes self as a parameter.
+
+    """
+
+        self.assertFalse(validate.ValidatePassword("Silv@12"))
+        self.assertFalse(validate.ValidatePassword("rikes76#"))
+        self.assertFalse(validate.ValidatePassword("Riki45eh"))
+        self.assertFalse(validate.ValidatePassword("rikeSH#W"))
+        self.assertFalse(validate.ValidatePassword("rikes76R"))
+    
